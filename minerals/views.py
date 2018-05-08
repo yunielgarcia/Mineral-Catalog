@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from minerals.models import Mineral
 
-# Create your views here.
+
+def index(request):
+    minerals_list = Mineral.objects.all()
+    return render(request, 'minerals/index.html', {"minerals": minerals_list})

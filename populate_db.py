@@ -7,7 +7,7 @@ def dict_formatted(dict):
     return corrected_dict
 
 
-def load_json_setup():
+def load_context():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mineral_catalog.settings")
 
     # And we need to start up the apps
@@ -17,6 +17,7 @@ def load_json_setup():
 
 
 def populate_db_with_minerals():
+    #  We have to called load_context before importing the model !!!!
     from minerals.models import Mineral
 
     mineral_json_data = open('minerals.json')
@@ -31,5 +32,5 @@ def populate_db_with_minerals():
 
 if __name__ == '__main__':
 
-    load_json_setup()
+    load_context()
     populate_db_with_minerals()
