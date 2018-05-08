@@ -10,7 +10,7 @@
     <div class="mineral__container">
       <h1 class="mineral__name">{{ mineral }}</h1>
       <div class="mineral__image-bg">
-        <img class="mineral__image" src="{% static 'images/{{ mineral.image_filename }}' %}" alt="{{ mineral.name }}">
+        <img class="mineral__image" src="{% static 'images/' %}{{ mineral.name }}{{ '.jpg' }}" alt="{{ mineral.image_filename }}">
         <p class="mineral__caption">Mineral caption goes here</p>
       </div>
       <div class="mineral__table-container">
