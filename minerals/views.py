@@ -9,4 +9,4 @@ def index(request):
 
 def course_detail(request, pk):
     mineral = get_object_or_404(Mineral, pk=pk)
-    return render(request, 'minerals/mineral_detail.html', {'mineral': mineral})
+    return render(request, 'minerals/mineral_detail.html', {'mineral': mineral.__dict__, 'mineral_obj': mineral})

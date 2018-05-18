@@ -25,7 +25,6 @@ class Mineral(models.Model):
     refractive_index = models.CharField(max_length=255, blank=True)
     crystal_habit = models.CharField(max_length=255, blank=True)
     specific_gravity = models.CharField(max_length=255, blank=True)
-    # group = models.ForeignKey(Group)
     group = models.CharField(max_length=255)
 
     def __str__(self):
