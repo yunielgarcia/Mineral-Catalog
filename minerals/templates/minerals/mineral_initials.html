@@ -1,0 +1,8 @@
+{% for letter in alpha_list %}
+    <a href="{% url 'minerals:list' initial=letter %}"
+       class="initial
+        {% if l_selected and l_selected == letter %}
+       selected
+       {% endif %}">{{ letter }}
+    </a>
+{% endfor %}

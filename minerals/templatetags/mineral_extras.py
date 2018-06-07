@@ -1,3 +1,4 @@
+import string
 from django import template
 
 register = template.Library()
@@ -8,3 +9,13 @@ def property_display(property_str):
     """Estimates the # of min to complete a step based on the passed-in wordcount"""
     for_display = property_str.replace('_', ' ')
     return for_display
+
+
+@register.inclusion_tag('minerals/mineral_initials.html', takes_context=True)
+def mineral_initial_list(context):
+    """Returns the alphabet to filter minerals by initial"""
+    alpha_list = string.ascii_uppercase
+    initial = ''
+    if context['l_selected']:
+        initial = context['l_selected']
+    return {'alpha_list': alpha_list, 'l_selected': initial}
