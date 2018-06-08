@@ -15,7 +15,10 @@ def property_display(property_str):
 def mineral_initial_list(context):
     """Returns the alphabet to filter minerals by initial"""
     alpha_list = string.ascii_uppercase
-    initial = ''
-    if context['l_selected']:
+    try:
+        context['l_selected']
+    except Exception:
+        initial = 'A'
+    else:
         initial = context['l_selected']
     return {'alpha_list': alpha_list, 'l_selected': initial}

@@ -5,6 +5,7 @@ from minerals.models import Mineral
 def index(request, initial=''):
     if not initial:
         minerals_list = Mineral.objects.filter(name__startswith='A')
+        initial = 'A'
     else:
         minerals_list = Mineral.objects.filter(name__startswith=initial)
     return render(request, 'minerals/index.html',
@@ -14,4 +15,5 @@ def index(request, initial=''):
 
 def course_detail(request, pk):
     mineral = get_object_or_404(Mineral, pk=pk)
-    return render(request, 'minerals/mineral_detail.html', {'mineral': mineral.__dict__, 'mineral_obj': mineral, 'l_selected': 'B'})
+    return render(request, 'minerals/mineral_detail.html',
+                  {'mineral': mineral.__dict__, 'mineral_obj': mineral})
