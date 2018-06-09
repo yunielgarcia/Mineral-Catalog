@@ -216,14 +216,10 @@ table, p, ul { margin-bottom: 2.5rem; }
 .top-bar-right {
     float: right;
 }
-.menu{
-  background-color: #eee;
-  list-style-type: none;
-}
+
 .menu>li{
   outline: 0;
   display: table-cell;
-  vertical-align: middle;
 }
 .top-bar input {
     width: 200px;
