@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from minerals.models import Mineral
 
+
 def index(request, initial=''):
     if not initial:
         minerals_list = Mineral.objects.filter(name__startswith='A')
@@ -12,7 +13,13 @@ def index(request, initial=''):
                    "l_selected": initial})
 
 
-def course_detail(request, pk):
+def minerals_group(request, group):
+    g_name = group.replace('_', ' ')
+    minerals_list = Mineral.objects.filter(group=g_name)
+    return render(request, 'minerals/index.html', {"minerals": minerals_list, 'g_selected': group})
+
+
+def mineral_detail(request, pk):
     mineral = get_object_or_404(Mineral, pk=pk)
     return render(request, 'minerals/mineral_detail.html',
                   {'mineral': mineral.__dict__, 'mineral_obj': mineral})

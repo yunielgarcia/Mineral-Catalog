@@ -1,0 +1,13 @@
+{% load mineral_extras %}
+
+{% for g in group_list %}
+    <p>
+        <a href="{% url 'minerals:group' group=g %}"
+           class="initial
+            {% if g_selected and g_selected == g %}
+            selected
+            {% endif %}">{{ g|property_display }}
+        </a>
+    </p>
+
+{% endfor %}

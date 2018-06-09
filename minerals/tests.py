@@ -8,14 +8,14 @@ from .models import Mineral
 class CourseViewsTest(TestCase):
     def setUp(self):
         self.mineral1 = Mineral.objects.create(
-            name="Mineral One",
+            name="A Mineral One",
             image_filename="Mineral_one_file_name",
             image_caption="mineral_one_caption",
             category="Category_one",
             group="group_one"
         )
         self.mineral2 = Mineral.objects.create(
-            name="Mineral Two",
+            name="A Mineral Two",
             image_filename="Mineral_two_file_name",
             image_caption="mineral_two_caption",
             category="Category_two",

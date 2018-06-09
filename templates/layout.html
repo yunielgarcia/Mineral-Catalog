@@ -45,8 +45,15 @@
     </div>
 
     <div class="grid-100">
+        <div class="grid-20 text-centered">
+            {% mineral_groups_list %}
+        </div>
 
-        {% block content %} {% endblock %}
+        <div class="grid-80">
+            {% block content %} {% endblock %}
+        </div>
+
+
 
     </div>
 </div>
