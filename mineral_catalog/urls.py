@@ -14,10 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url, include
-from . import views
+import debug_toolbar
 
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^', include('minerals.urls', namespace='minerals')),
+    url(r'^__debug__/', include(debug_toolbar.urls)), # added this line
 ]
+
+urlpatterns += staticfiles_urlpatterns()

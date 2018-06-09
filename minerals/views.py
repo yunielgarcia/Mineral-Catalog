@@ -3,6 +3,7 @@ from minerals.models import Mineral
 
 
 def index(request, initial=''):
+    print("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
     if not initial:
         minerals_list = Mineral.objects.filter(name__startswith='A')
         initial = 'A'
