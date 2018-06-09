@@ -63,3 +63,21 @@ class CourseViewsTest(TestCase):
         resp = self.client.get(reverse('minerals:detail', kwargs={'pk': self.mineral1.pk}))
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(self.mineral1, resp.context['mineral_obj'])
+
+    # model testing
+
+    def test_create_whatever(self, name="A Mineral One",
+                             image_filename="Mineral_one_file_name",
+                             image_caption="mineral_one_caption",
+                             category="Category_one",
+                             group="group one"):
+        return Mineral.objects.create(name=name,
+                                      image_filename=image_filename,
+                                      image_caption=image_caption,
+                                      category=category,
+                                      group=group)
+
+    def test_whatever_creation(self):
+        w = self.test_create_whatever()
+        self.assertTrue(isinstance(w, Mineral))
+        self.assertEqual(w.__str__(), w.name)
